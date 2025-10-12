@@ -37,4 +37,4 @@ def random_letter():
     return Randomizer().rando_letter()
 
 def check_l1(letter, answer):
-    return MorseCoderL1(letter, answer).coder_l1()
+    return MorseCoderL1(letter, answer).coder_l1() 

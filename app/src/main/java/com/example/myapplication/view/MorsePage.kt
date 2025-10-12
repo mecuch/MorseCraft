@@ -19,14 +19,13 @@ fun MorsePage() {
         currentLetter = py.callAttr("random_letter").toString()
     }
 
-
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Text("Translate into Morse Code:")
-        Text("Litera: ${currentLetter ?: "..."}")
+        Text("Letter: ${currentLetter ?: "..."}")
 
         TextField(
             value = morseText,
@@ -35,11 +34,11 @@ fun MorsePage() {
             modifier = Modifier.fillMaxWidth()
         )
 
-        Row() {
+        Row {
             Button(onClick = { morseText += "." }) {
                 Text(".")
             }
-            Button(onClick = { morseText += "_" }) {
+            Button(onClick = { morseText += "-" }) {
                 Text("_")
             }
         }
@@ -47,10 +46,12 @@ fun MorsePage() {
         Button(onClick = {
             val letter = currentLetter ?: return@Button
             val ok = py.callAttr("check_l1", letter, morseText).toBoolean()
-            result = if (ok) "OK" else "WRONG!"
-            // nowa runda
-            currentLetter = py.callAttr("random_letter").toString()
+            result = if (ok) "OK" else "WRONG! Try again!"
             morseText = ""
+            if (ok){
+                currentLetter = py.callAttr("random_letter").toString()
+                morseText = ""
+            }
         }) {
             Text("CHECK!")
         }

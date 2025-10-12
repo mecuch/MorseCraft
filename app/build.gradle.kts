@@ -65,6 +65,5 @@ dependencies {
     val nav_version = "2.9.5"
     implementation("androidx.navigation:navigation-compose:$nav_version")
 
-    implementation("com.chaquo.python:gradle:16.1.0")
 
 }
