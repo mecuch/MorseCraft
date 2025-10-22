@@ -18,13 +18,13 @@ fun DisclaimerPage(navController: NavController) {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "MorseCraft POC Edition"
+            text = "MorseCraft v0.1"
         )
         Text(
             text = "Warning!"
         )
         Text(
-            text = "This version is a proof of concept only!"
+            text = "This application is under active development! Beware of bugs!"
         )
         Button(onClick = {
             navController.navigate(routes.mainmenupage)
