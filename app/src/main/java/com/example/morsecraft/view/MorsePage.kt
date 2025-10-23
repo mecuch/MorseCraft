@@ -1,4 +1,4 @@
-package com.example.myapplication.view
+package com.example.morsecraft.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -6,6 +6,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.chaquo.python.Python
+import com.example.morsecraft.utils.MorseArmButton
+
 
 @Composable
 fun MorsePage() {
@@ -35,12 +37,7 @@ fun MorsePage() {
         )
 
         Row {
-            Button(onClick = { morseText += "." }) {
-                Text(".")
-            }
-            Button(onClick = { morseText += "-" }) {
-                Text("_")
-            }
+            MorseArmButton({ morseText += "." }, { morseText += "-"} )
         }
 
         Button(onClick = {

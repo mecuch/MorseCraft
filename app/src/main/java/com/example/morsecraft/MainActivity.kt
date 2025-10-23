@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.morsecraft
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,10 +9,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.chaquo.python.Python
 import com.chaquo.python.android.AndroidPlatform
-import com.example.myapplication.utils.routes
-import com.example.myapplication.view.DisclaimerPage
-import com.example.myapplication.view.MainMenuPage
-import com.example.myapplication.view.MorsePage
+import com.example.morsecraft.utils.routes
+import com.example.morsecraft.view.DisclaimerPage
+import com.example.morsecraft.view.MainMenuPage
+import com.example.morsecraft.view.MorsePage
 
 
 class MainActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package com.example.myapplication.utils
+package com.example.morsecraft.utils
 
 object routes {
     val disclaimerpage = "routes.disclaimerpage"

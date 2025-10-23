@@ -1,4 +1,4 @@
-package com.example.myapplication.view
+package com.example.morsecraft.view
 
 import android.app.Activity
 import androidx.compose.foundation.layout.Arrangement
@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavController
-import com.example.myapplication.utils.routes
+import com.example.morsecraft.utils.routes
 
 @Composable
 fun MainMenuPage(navController: NavController){
