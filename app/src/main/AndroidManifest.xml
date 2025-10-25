@@ -10,7 +10,7 @@
         android:label="MorseCraft"
         android:roundIcon="@drawable/ic_launcher_foreground"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication">
+        android:theme="@style/Theme.MyApp.Splash">
         <activity
             android:name=".MainActivity"
             android:exported="true"

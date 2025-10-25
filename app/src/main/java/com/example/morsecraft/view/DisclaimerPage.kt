@@ -8,6 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import com.example.morsecraft.utils.MainTitle
+import com.example.morsecraft.utils.WarningTitleBig
 import com.example.morsecraft.utils.routes
 
 @Composable
@@ -17,12 +19,8 @@ fun DisclaimerPage(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(
-            text = "MorseCraft v0.1"
-        )
-        Text(
-            text = "Warning!"
-        )
+        MainTitle("MorseCraft v0.1")
+        WarningTitleBig("Warning!")
         Text(
             text = "This application is under active development! Beware of bugs!"
         )
