@@ -64,7 +64,6 @@ dependencies {
 
     val nav_version = "2.9.5"
     implementation("androidx.navigation:navigation-compose:$nav_version")
-    implementation("androidx.core:core-splashscreen:1.0.1")
 
 
 }

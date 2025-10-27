@@ -6,11 +6,11 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/morsecraft_splash"
         android:label="MorseCraft"
-        android:roundIcon="@drawable/ic_launcher_foreground"
+        android:roundIcon="@drawable/morsecraft_splash"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApp.Splash">
+        android:theme="@style/Theme.MyApplication">
         <activity
             android:name=".MainActivity"
             android:exported="true"

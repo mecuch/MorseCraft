@@ -4,8 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.core.splashscreen.SplashScreen
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -20,7 +18,6 @@ import com.example.morsecraft.view.MorsePage
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         if (!Python.isStarted()) {
@@ -28,21 +25,11 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             val navController = rememberNavController()
-            NavHost(
-                navController = navController,
-                startDestination = routes.disclaimerpage,
-                builder = {
-                    composable(routes.disclaimerpage) {
-                    DisclaimerPage(navController = navController)
-                }
-                    composable(routes.mainmenupage) {
-                    MainMenuPage(navController = navController)
-                }
-                    composable(routes.morsepage) {
-                        MorsePage()
-                    }
+            NavHost(navController, startDestination = routes.disclaimerpage) {
+                composable(routes.disclaimerpage) { DisclaimerPage(navController) }
+                composable(routes.mainmenupage) { MainMenuPage(navController) }
+                composable(routes.morsepage) { MorsePage() }
             }
-            )
         }
     }
 }
