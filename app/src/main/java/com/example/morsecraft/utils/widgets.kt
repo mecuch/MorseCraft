@@ -1,6 +1,7 @@
 package com.example.morsecraft.utils
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
@@ -15,12 +16,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.morsecraft.R
+import com.example.morsecraft.view.CheckResult
 
 val doto = FontFamily(
     Font(R.font.doto_variable)
@@ -79,6 +82,20 @@ fun CheckButton(
         }
 
     }
+}
+
+@Composable
+fun ResultBadge(result: CheckResult?, modifier: Modifier = Modifier) {
+    if (result == null) return
+    val resId = when (result) {
+        CheckResult.OK -> R.drawable.ok
+        CheckResult.WRONG -> R.drawable.wrong
+    }
+    Image(
+        painter = painterResource(id = resId),
+        contentDescription = if (result == CheckResult.OK) "OK" else "Wrong",
+        modifier = modifier.size(64.dp)
+    )
 }
 
 @OptIn(ExperimentalFoundationApi::class)
