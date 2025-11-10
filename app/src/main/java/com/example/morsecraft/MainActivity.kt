@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.chaquo.python.Python
 import com.chaquo.python.android.AndroidPlatform
 import com.example.morsecraft.utils.routes
+import com.example.morsecraft.view.DecodePage
 import com.example.morsecraft.view.DisclaimerPage
 import com.example.morsecraft.view.MainMenuPage
 import com.example.morsecraft.view.MorsePage
@@ -28,7 +29,8 @@ class MainActivity : ComponentActivity() {
             NavHost(navController, startDestination = routes.disclaimerpage) {
                 composable(routes.disclaimerpage) { DisclaimerPage(navController) }
                 composable(routes.mainmenupage) { MainMenuPage(navController) }
-                composable(routes.morsepage) { MorsePage() }
+                composable(routes.morsepage) { MorsePage(navController) }
+                composable(routes.decodepage) { DecodePage(navController) }
             }
         }
     }
