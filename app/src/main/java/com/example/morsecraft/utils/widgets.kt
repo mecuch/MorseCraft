@@ -108,7 +108,7 @@ fun RecButton(
             .combinedClickable(
                 onClick = onClick
             )
-            .size(100.dp),
+            .size(70.dp),
         color = Color(0xFF4785c5),
         tonalElevation = 4.dp,
         shadowElevation = 4.dp,
@@ -126,6 +126,32 @@ fun RecButton(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
+fun StopRecButton(
+    onClick: () -> Unit,
+) {
+    Surface(
+        modifier = Modifier
+            .combinedClickable(
+                onClick = onClick
+            )
+            .size(70.dp),
+        color = Color(0xFF4785c5),
+        tonalElevation = 4.dp,
+        shadowElevation = 4.dp,
+        shape = RoundedCornerShape(4.dp)
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ){
+            StopRecLogo()
+        }
+
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
 fun PlayButton(
     onClick: () -> Unit,
 ) {
@@ -134,7 +160,7 @@ fun PlayButton(
             .combinedClickable(
                 onClick = onClick
             )
-            .size(100.dp),
+            .size(70.dp),
         color = Color(0xFF4785c5),
         tonalElevation = 4.dp,
         shadowElevation = 4.dp,
@@ -160,7 +186,7 @@ fun StopButton(
             .combinedClickable(
                 onClick = onClick
             )
-            .size(100.dp),
+            .size(70.dp),
         color = Color(0xFF4785c5),
         tonalElevation = 4.dp,
         shadowElevation = 4.dp,

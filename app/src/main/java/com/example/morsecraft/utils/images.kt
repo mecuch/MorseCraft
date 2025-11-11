@@ -43,9 +43,19 @@ fun MicroLogo(){
 fun RecLogo(){
     Image(
         painter = painterResource(id = R.drawable.rec_but),
-        contentDescription = "menu logo",
+        contentDescription = "rec logo",
         modifier = Modifier
-            .size(140.dp)
+            .size(100.dp)
+    )
+}
+
+@Composable
+fun StopRecLogo(){
+    Image(
+        painter = painterResource(id = R.drawable.stop_rec_butt),
+        contentDescription = "stop rec logo",
+        modifier = Modifier
+            .size(100.dp)
     )
 }
 
@@ -55,7 +65,7 @@ fun PlayLogo(){
         painter = painterResource(id = R.drawable.play_butt),
         contentDescription = "menu logo",
         modifier = Modifier
-            .size(140.dp)
+            .size(100.dp)
     )
 }
 
@@ -65,7 +75,7 @@ fun StopLogo(){
         painter = painterResource(id = R.drawable.stop_butt),
         contentDescription = "menu logo",
         modifier = Modifier
-            .size(140.dp)
+            .size(100.dp)
     )
 }
 
