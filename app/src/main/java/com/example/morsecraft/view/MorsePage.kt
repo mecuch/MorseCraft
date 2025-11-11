@@ -24,7 +24,7 @@ fun MorsePage(navController: NavController) {
     var currentLetter by remember {mutableStateOf<String?>(null)}
     var result by remember {mutableStateOf<CheckResult?>(null)}
 
-    val py = remember { Python.getInstance().getModule("morsecoder")}
+    val py = remember { Python.getInstance().getModule("model.morsecoder")}
 
     LaunchedEffect(Unit) {
         currentLetter = py.callAttr("random_letter").toString()
