@@ -94,7 +94,10 @@ class MorseWAVDecoderLetter:
         return self.morse_to_letter.get(morse, "?")
 
 
-test = MorseWAVDecoderLetter("D.wav")
-print(test.analyze())
-print(test.decode2morse())
-print(test.decode2letter())
+def getanswermorse(path: str) -> str:
+    decoder = MorseWAVDecoderLetter(path)
+    return decoder.decode2morse()
+
+def getanswertext(path: str) -> str:
+    decoder = MorseWAVDecoderLetter(path)
+    return decoder.decode2letter()

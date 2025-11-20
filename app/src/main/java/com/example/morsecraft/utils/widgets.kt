@@ -273,6 +273,17 @@ fun BigTitleBlack(value: String) {
 }
 
 @Composable
+fun MediumTitle(value: String) {
+    Text(
+        text = value,
+        fontSize = 26.sp,
+        fontFamily = doto,
+        fontWeight = FontWeight.Bold,
+        color = Color(0xFF4785c5)
+    )
+}
+
+@Composable
 fun NormalTouchTitle(value: String) {
     Text(
         text = value,
@@ -351,6 +362,20 @@ fun QuestionTable(
     )
     {
         BigTitle(value)
+    }
+}
+
+@Composable
+fun MessageTable(
+    value: String
+){
+    Box(
+        modifier = Modifier
+            .border(width = 1.dp, color = Color(0xFF4785c5))
+            .padding(8.dp)
+    )
+    {
+        MediumTitle(value)
     }
 }
 

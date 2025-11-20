@@ -25,11 +25,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
+import com.chaquo.python.Python
 import com.example.morsecraft.data.WavPlayer
 import com.example.morsecraft.data.WavRecorder
 import com.example.morsecraft.utils.BackButton
 import com.example.morsecraft.utils.DecodeButton
 import com.example.morsecraft.utils.MainTitle
+import com.example.morsecraft.utils.MessageTable
 import com.example.morsecraft.utils.MicroLogo
 import com.example.morsecraft.utils.PlayButton
 import com.example.morsecraft.utils.RecButton
@@ -53,6 +55,9 @@ fun DecodePage(navController: NavController) {
     var isRecording by remember { mutableStateOf(false) }
     var isPlaying by remember { mutableStateOf(false) }
     var msg by remember { mutableStateOf("idle") }
+    var morsemsg by remember {mutableStateOf<String?>(null)}
+    var alphabetmsg by remember {mutableStateOf<String?>(null)}
+    val py = remember { Python.getInstance().getModule("model.morsewavdecoder")}
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -132,22 +137,19 @@ fun DecodePage(navController: NavController) {
 
             Spacer(Modifier.height(20.dp))
             SubMainTitle(msg)
-            DecodeButton { }
+            DecodeButton {
+                val wavPath = file.absolutePath
+                val decomorse = py.callAttr("getanswermorse", wavPath).toString()
+                val decotext = py.callAttr("getanswertext", wavPath).toString()
+                morsemsg = decomorse
+                alphabetmsg = decotext
+            }
 
             Spacer(Modifier.height(20.dp))
-            TextField(
-                value = "",
-                onValueChange = {},
-                label = { SubMainTitle("Morse code message:") },
-                modifier = Modifier.fillMaxWidth(0.9f)
-            )
+            MessageTable(morsemsg ?: "<Morse Code Message>")
             Spacer(Modifier.height(20.dp))
-            TextField(
-                value = "",
-                onValueChange = {},
-                label = { SubMainTitle("Decoded message:") },
-                modifier = Modifier.fillMaxWidth(0.9f)
-            )
+            MessageTable(alphabetmsg ?: "<Text Message>")
+
         }
     }
 

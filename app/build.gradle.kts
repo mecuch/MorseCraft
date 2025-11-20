@@ -18,6 +18,17 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        chaquopy {
+            defaultConfig {
+                // opcjonalnie możesz wskazać wersję Pythona:
+                // version = "3.11"
+
+                pip {
+                    install("numpy")
+                }
+            }
+        }
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         ndk {
             abiFilters += listOf("arm64-v8a", "x86_64")
