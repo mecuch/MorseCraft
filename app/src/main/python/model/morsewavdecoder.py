@@ -2,7 +2,7 @@ import wave
 import numpy as np
 
 class MorseWAVDecoderLetter:
-    def __init__(self, path: str, threshold: float = 0.20, min_gap_ms: float = 10.0):
+    def __init__(self, path: str, threshold: float = 0.10, min_gap_ms: float = 20.0):
         """
         threshold: próg amplitudy (0–1)
         min_gap_ms: minimalny odstęp między początkami pików (scalanie bardzo bliskich impulsów)
@@ -65,7 +65,7 @@ class MorseWAVDecoderLetter:
 
         return [float(d) for d in durs_ms]
 
-    def decode2morse(self, boundary_ms: float = 300.0):
+    def decode2morse(self, boundary_ms: float = 60.0):
         """
         Mapuje czasy trwania na '.' lub '_' wg progu boundary_ms.
         Zwraca string Morse'a dla pojedynczej litery (np. ".-" lub "_").
@@ -101,3 +101,8 @@ def getanswermorse(path: str) -> str:
 def getanswertext(path: str) -> str:
     decoder = MorseWAVDecoderLetter(path)
     return decoder.decode2letter()
+
+"""test = MorseWAVDecoderLetter("G.wav")
+morse = test.decode2morse()
+analyze = test.analyze()
+print(morse, analyze)"""
