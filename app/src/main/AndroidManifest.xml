@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/morsecraft_splash"
+        android:icon="@drawable/logom"
         android:label="MorseCraft"
-        android:roundIcon="@drawable/morsecraft_splash"
+        android:roundIcon="@drawable/logom"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity

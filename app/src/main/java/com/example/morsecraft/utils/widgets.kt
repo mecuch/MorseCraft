@@ -4,10 +4,14 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -28,23 +32,22 @@ import com.example.morsecraft.view.CheckResult
 val doto = FontFamily(
     Font(R.font.doto_variable)
 )
-
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun MorseArmButton(
+fun MorseDotButton(
     onClick: () -> Unit,
-    onLongClick: () -> Unit
 ) {
     Surface(
         modifier = Modifier
             .combinedClickable(
-                onClick = onClick,
-                onLongClick = onLongClick
-
+                onClick = onClick
             )
-            .size(250.dp),
-        color = Color(0xFF4785c5),
-        tonalElevation = 4.dp,
+            .size(200.dp)
+            .border(
+                color = Color(0xFF2FAC66),
+                shape = RoundedCornerShape(16.dp),
+                width = 2.dp,
+            ),
         shadowElevation = 4.dp,
         shape = RoundedCornerShape(10.dp)
     ) {
@@ -52,7 +55,36 @@ fun MorseArmButton(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ){
-            CodeLogo()
+            DotImage()
+        }
+
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun MorseDashButton(
+    onClick: () -> Unit,
+) {
+    Surface(
+        modifier = Modifier
+            .combinedClickable(
+                onClick = onClick
+            )
+            .size(200.dp)
+            .border(
+                color = Color(0xFF2FAC66),
+                shape = RoundedCornerShape(16.dp),
+                width = 2.dp,
+            ),
+        shadowElevation = 4.dp,
+        shape = RoundedCornerShape(10.dp)
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ){
+            DashImage()
         }
 
     }
@@ -68,10 +100,11 @@ fun CheckButton(
             .combinedClickable(
                 onClick = onClick,
             )
-            .size(width = 90.dp, height = 250.dp),
-        color = Color(0xFF4785c5),
-        tonalElevation = 4.dp,
-        shadowElevation = 4.dp,
+            .size(width = 250.dp, height = 90.dp)
+            .border(
+                color = Color(0xFF2FAC66),
+                shape = RoundedCornerShape(16.dp),
+                width = 2.dp),
         shape = RoundedCornerShape(10.dp)
     ) {
         Box(
@@ -79,6 +112,33 @@ fun CheckButton(
             contentAlignment = Alignment.Center
         ){
             CheckLogo()
+        }
+
+    }
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun DeleteButton(
+    onClick: () -> Unit,
+) {
+    Surface(
+        modifier = Modifier
+            .combinedClickable(
+                onClick = onClick,
+            )
+            .size(width = 250.dp, height = 90.dp)
+            .border(
+                color = Color(0xFF2FAC66),
+                shape = RoundedCornerShape(16.dp),
+                width = 2.dp),
+        shape = RoundedCornerShape(10.dp)
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ){
+            DeleteLogo()
         }
 
     }
@@ -108,11 +168,12 @@ fun RecButton(
             .combinedClickable(
                 onClick = onClick
             )
-            .size(70.dp),
-        color = Color(0xFF4785c5),
-        tonalElevation = 4.dp,
-        shadowElevation = 4.dp,
-        shape = RoundedCornerShape(4.dp)
+            .size(70.dp)
+            .border(
+                color = Color(0xFF2FAC66),
+                shape = RoundedCornerShape(16.dp),
+                width = 2.dp),
+        shape = RoundedCornerShape(16.dp)
     ) {
         Box(
             modifier = Modifier.fillMaxSize(),
@@ -134,11 +195,12 @@ fun StopRecButton(
             .combinedClickable(
                 onClick = onClick
             )
-            .size(70.dp),
-        color = Color(0xFF4785c5),
-        tonalElevation = 4.dp,
-        shadowElevation = 4.dp,
-        shape = RoundedCornerShape(4.dp)
+            .size(70.dp)
+            .border(
+                color = Color(0xFF2FAC66),
+                shape = RoundedCornerShape(16.dp),
+                width = 2.dp),
+        shape = RoundedCornerShape(16.dp)
     ) {
         Box(
             modifier = Modifier.fillMaxSize(),
@@ -160,10 +222,11 @@ fun PlayButton(
             .combinedClickable(
                 onClick = onClick
             )
-            .size(70.dp),
-        color = Color(0xFF4785c5),
-        tonalElevation = 4.dp,
-        shadowElevation = 4.dp,
+            .size(70.dp)
+            .border(
+                color = Color(0xFF2FAC66),
+                shape = RoundedCornerShape(16.dp),
+                width = 2.dp),
         shape = RoundedCornerShape(4.dp)
     ) {
         Box(
@@ -186,10 +249,11 @@ fun StopButton(
             .combinedClickable(
                 onClick = onClick
             )
-            .size(70.dp),
-        color = Color(0xFF4785c5),
-        tonalElevation = 4.dp,
-        shadowElevation = 4.dp,
+            .size(70.dp)
+            .border(
+                color = Color(0xFF2FAC66),
+                shape = RoundedCornerShape(16.dp),
+                width = 2.dp),
         shape = RoundedCornerShape(4.dp)
     ) {
         Box(
@@ -212,10 +276,11 @@ fun DecodeButton(
             .combinedClickable(
                 onClick = onClick
             )
-            .size(width = 340.dp, height = 80.dp),
-        color = Color(0xFF4785c5),
-        tonalElevation = 4.dp,
-        shadowElevation = 4.dp,
+            .size(width = 340.dp, height = 80.dp)
+            .border(
+                color = Color(0xFF2FAC66),
+                shape = RoundedCornerShape(16.dp),
+                width = 2.dp),
         shape = RoundedCornerShape(4.dp)
     ) {
         Box(
@@ -232,10 +297,10 @@ fun DecodeButton(
 fun MainTitle(value: String) {
     Text(
         text = value,
-        fontSize = 30.sp,
+        fontSize = 65.sp,
         fontFamily = doto,
         fontWeight = FontWeight.Bold,
-        color = Color(0xFF4785c5)
+        color = Color(0xFF2FAC66)
     )
 }
 
@@ -246,7 +311,7 @@ fun SubMainTitle(value: String) {
         fontSize = 15.sp,
         fontFamily = doto,
         fontWeight = FontWeight.Bold,
-        color = Color(0xFF4785c5)
+        color = Color(0xFF2FAC66)
     )
 }
 
@@ -257,7 +322,7 @@ fun BigTitle(value: String) {
         fontSize = 75.sp,
         fontFamily = doto,
         fontWeight = FontWeight.Bold,
-        color = Color(0xFF4785c5)
+        color = Color(0xFF2FAC66)
     )
 }
 
@@ -279,7 +344,7 @@ fun MediumTitle(value: String) {
         fontSize = 26.sp,
         fontFamily = doto,
         fontWeight = FontWeight.Bold,
-        color = Color(0xFF4785c5)
+        color = Color(0xFF2FAC66)
     )
 }
 
@@ -298,10 +363,10 @@ fun NormalTouchTitle(value: String) {
 fun MenuNormalTouchTitle(value: String) {
     Text(
         text = value,
-        fontSize = 24.sp,
+        fontSize = 29.sp,
         fontFamily = doto,
         fontWeight = FontWeight.Bold,
-        color = Color(0xFF4785c5)
+        color = Color(0xFF2FAC66)
     )
 }
 
@@ -316,7 +381,7 @@ fun NormalTouchButton(
             .combinedClickable(
                 onClick = onClick,
             ),
-        color = Color(0xFF4785c5),
+        color = Color(0xFF2FAC66),
         tonalElevation = 4.dp,
         shadowElevation = 4.dp
     ) {
@@ -328,7 +393,8 @@ fun NormalTouchButton(
 @Composable
 fun MenuNormalTouchButton(
     onClick: () -> Unit,
-    text: String
+    text: String,
+    ID: Int
 ) {
     Surface(
         modifier = Modifier
@@ -336,7 +402,20 @@ fun MenuNormalTouchButton(
                 onClick = onClick,
             )
     ) {
-        MenuNormalTouchTitle(text)
+        Row(
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically
+        ){
+            Image(
+                painter = painterResource(id = ID),
+                contentDescription = "encode menu",
+                modifier = Modifier
+                    .size(75.dp)
+            )
+            Spacer(Modifier.width(20.dp))
+            MenuNormalTouchTitle(text)
+        }
+
     }
 }
 
@@ -357,7 +436,7 @@ fun QuestionTable(
 ){
     Box(
         modifier = Modifier
-            .border(width = 1.dp, color = Color(0xFF4785c5))
+            .border(width = 1.dp, color = Color(0xFF2FAC66))
             .padding(8.dp)
     )
     {
@@ -371,7 +450,7 @@ fun MessageTable(
 ){
     Box(
         modifier = Modifier
-            .border(width = 1.dp, color = Color(0xFF4785c5))
+            .border(width = 1.dp, color = Color(0xFF2FAC66))
             .padding(8.dp)
     )
     {

@@ -10,8 +10,10 @@ import androidx.navigation.NavController
 import com.chaquo.python.Python
 import com.example.morsecraft.utils.BackButton
 import com.example.morsecraft.utils.CheckButton
+import com.example.morsecraft.utils.DeleteButton
 import com.example.morsecraft.utils.MainTitle
-import com.example.morsecraft.utils.MorseArmButton
+import com.example.morsecraft.utils.MorseDashButton
+import com.example.morsecraft.utils.MorseDotButton
 import com.example.morsecraft.utils.QuestionTable
 import com.example.morsecraft.utils.ResultBadge
 import com.example.morsecraft.utils.SubMainTitle
@@ -65,8 +67,6 @@ fun MorsePage(navController: NavController) {
                         .padding(16.dp)
                 )
             }
-
-
             Spacer(Modifier.height(20.dp))
             TextField(
                 value = morseText,
@@ -76,8 +76,12 @@ fun MorsePage(navController: NavController) {
             )
             Spacer(Modifier.height(20.dp))
             Row {
-                MorseArmButton({ morseText += "." }, { morseText += "-"} )
+                MorseDotButton({ morseText += "."})
                 Spacer(Modifier.width(10.dp))
+                MorseDashButton({ morseText += "_"})
+            }
+            Spacer(Modifier.height(20.dp))
+            Row{
                 CheckButton { val letter = currentLetter ?:return@CheckButton
                     val ok = py.callAttr("check_l1", letter, morseText).toBoolean()
                     result = if (ok) CheckResult.OK else CheckResult.WRONG
@@ -85,7 +89,10 @@ fun MorsePage(navController: NavController) {
                     if (ok){
                         currentLetter = py.callAttr("random_letter").toString()
                         morseText = ""
-                    } }
+                    }
+                }
+                Spacer(Modifier.width(10.dp))
+                DeleteButton { morseText = "" }
             }
 
             LaunchedEffect(result) {

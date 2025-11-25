@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.morsecraft.R
 import com.example.morsecraft.utils.MainTitle
 import com.example.morsecraft.utils.MenuLogo
 import com.example.morsecraft.utils.MenuNormalTouchButton
@@ -32,17 +33,20 @@ fun MainMenuPage(navController: NavController){
             onClick = {
             navController.navigate(routes.morsepage)
         },
-            text = "Encode Game")
+            text = "Encode Game",
+            ID = R.drawable.encod_menu)
         Spacer(Modifier.height(20.dp))
         MenuNormalTouchButton(
             onClick = {
                 navController.navigate(routes.decodepage)
             },
-            text = "Decode with microphone")
+            text = "Decode with\n microphone",
+            ID = R.drawable.decod_menu)
         Spacer(Modifier.height(20.dp))
         MenuNormalTouchButton(
             onClick = {activity?.finishAffinity()},
-            text = "Exit")
+            text = "Exit",
+            ID = R.drawable.exit_menu)
 
     }
 

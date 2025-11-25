@@ -22,7 +22,7 @@ fun Disclaimer(){
 @Composable
 fun MenuLogo(){
     Image(
-        painter = painterResource(id = R.drawable.morsecraft_splash),
+        painter = painterResource(id = R.drawable.logom),
         contentDescription = "menu logo",
         modifier = Modifier
             .size(240.dp)
@@ -108,4 +108,35 @@ fun CheckLogo(){
             .size(140.dp)
     )
 }
+
+@Composable
+fun DeleteLogo(){
+    Image(
+        painter = painterResource(id = R.drawable.delete),
+        contentDescription = "delete",
+        modifier = Modifier
+            .size(100.dp)
+    )
+}
+
+@Composable
+fun DotImage(){
+    Image(
+        painter = painterResource(id = R.drawable.dott),
+        contentDescription = "encode menu",
+        modifier = Modifier
+            .size(90.dp)
+    )
+}
+
+@Composable
+fun DashImage(){
+    Image(
+        painter = painterResource(id = R.drawable.dashh),
+        contentDescription = "encode menu",
+        modifier = Modifier
+            .size(90.dp)
+    )
+}
+
 
