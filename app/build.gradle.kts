@@ -6,17 +6,28 @@ plugins {
 }
 
 android {
-    namespace = "com.example.myapplication"
+    namespace = "com.example.morsecraft"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.myapplication"
+        applicationId = "com.example.morsecraft"
         minSdk = 31
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
+
+        chaquopy {
+            defaultConfig {
+                // opcjonalnie możesz wskazać wersję Pythona:
+                // version = "3.11"
+
+                pip {
+                    install("numpy")
+                }
+            }
+        }
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         ndk {
