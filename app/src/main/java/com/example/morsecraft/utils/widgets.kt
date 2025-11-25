@@ -17,9 +17,14 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -28,6 +33,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.morsecraft.R
 import com.example.morsecraft.view.CheckResult
+import android.media.SoundPool
+import androidx.compose.runtime.getValue
 
 val doto = FontFamily(
     Font(R.font.doto_variable)
@@ -37,12 +44,35 @@ val doto = FontFamily(
 fun MorseDotButton(
     onClick: () -> Unit,
 ) {
+    val context = LocalContext.current
+    val soundPool = remember {
+        SoundPool.Builder()
+            .setMaxStreams(4)
+            .build()
+    }
+    var soundId by remember { mutableStateOf(0) }
+
+    LaunchedEffect(Unit) {
+        soundId = soundPool.load(context, R.raw.dot, 1)
+    }
     Surface(
         modifier = Modifier
             .combinedClickable(
-                onClick = onClick
+                onClick = {
+                    if (soundId != 0) {
+                        soundPool.play(
+                            soundId,
+                            1.0f,   // leftVolume
+                            1.0f,   // rightVolume
+                            1,      // priority
+                            0,      // loop
+                            1.0f    // rate = 1.0 (normalna prędkość)
+                        )
+                    }
+                    onClick()
+                }
             )
-            .size(200.dp)
+            .size(150.dp)
             .border(
                 color = Color(0xFF2FAC66),
                 shape = RoundedCornerShape(16.dp),
@@ -66,12 +96,35 @@ fun MorseDotButton(
 fun MorseDashButton(
     onClick: () -> Unit,
 ) {
+    val context = LocalContext.current
+    val soundPool = remember {
+        SoundPool.Builder()
+            .setMaxStreams(4)
+            .build()
+    }
+    var soundId by remember { mutableStateOf(0) }
+
+    LaunchedEffect(Unit) {
+        soundId = soundPool.load(context, R.raw.dash, 1)
+    }
     Surface(
         modifier = Modifier
             .combinedClickable(
-                onClick = onClick
+                onClick = {
+                    if (soundId != 0) {
+                        soundPool.play(
+                            soundId,
+                            1.0f,   // leftVolume
+                            1.0f,   // rightVolume
+                            1,      // priority
+                            0,      // loop
+                            1.0f    // rate = 1.0 (normalna prędkość)
+                        )
+                    }
+                    onClick()
+                }
             )
-            .size(200.dp)
+            .size(150.dp)
             .border(
                 color = Color(0xFF2FAC66),
                 shape = RoundedCornerShape(16.dp),
@@ -297,7 +350,7 @@ fun DecodeButton(
 fun MainTitle(value: String) {
     Text(
         text = value,
-        fontSize = 65.sp,
+        fontSize = 49.sp,
         fontFamily = doto,
         fontWeight = FontWeight.Bold,
         color = Color(0xFF2FAC66)

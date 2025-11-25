@@ -51,8 +51,8 @@ fun MorsePage(navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            MainTitle("ENCODE GAME")
-            Spacer(Modifier.height(45.dp))
+            MainTitle("ENCODE \nGAME")
+            Spacer(Modifier.height(25.dp))
             SubMainTitle("Translate into Morse Code:")
             Spacer(Modifier.height(20.dp))
             Box(
