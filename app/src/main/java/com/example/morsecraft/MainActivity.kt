@@ -13,7 +13,10 @@ import com.example.morsecraft.utils.routes
 import com.example.morsecraft.view.DecodePage
 import com.example.morsecraft.view.DisclaimerPage
 import com.example.morsecraft.view.MainMenuPage
+import com.example.morsecraft.view.MorseAtriumPage
 import com.example.morsecraft.view.MorsePage
+import com.example.morsecraft.view.TrainingAtriumPage
+import com.example.morsecraft.view.TrainingPage
 
 
 class MainActivity : ComponentActivity() {
@@ -30,7 +33,10 @@ class MainActivity : ComponentActivity() {
                 composable(routes.disclaimerpage) { DisclaimerPage(navController) }
                 composable(routes.mainmenupage) { MainMenuPage(navController) }
                 composable(routes.morsepage) { MorsePage(navController) }
+                composable (routes.morseatriumpage) { MorseAtriumPage(navController) }
                 composable(routes.decodepage) { DecodePage(navController) }
+                composable (routes.trainatriumpage) { TrainingAtriumPage(navController) }
+                composable (routes.trainingpage) { TrainingPage(navController) }
             }
         }
     }
