@@ -1,5 +1,6 @@
 package com.example.morsecraft.utils
 
+import android.content.Context
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -34,11 +35,24 @@ import androidx.compose.ui.unit.sp
 import com.example.morsecraft.R
 import com.example.morsecraft.view.CheckResult
 import android.media.SoundPool
+import android.os.Build
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import androidx.compose.runtime.getValue
 
 val doto = FontFamily(
     Font(R.font.doto_variable)
 )
+
+private fun vibrate(context: Context, durationMs: Long) {
+    val vibratorManager = context.getSystemService(VibratorManager::class.java)
+    val vibrator = vibratorManager?.defaultVibrator
+    vibrator?.vibrate(
+        VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE)
+    )
+}
+
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MorseDotButton(
@@ -69,6 +83,7 @@ fun MorseDotButton(
                             1.0f    // rate = 1.0 (normalna prędkość)
                         )
                     }
+                    vibrate(context, durationMs = 20)
                     onClick()
                 }
             )
@@ -121,6 +136,7 @@ fun MorseDashButton(
                             1.0f    // rate = 1.0 (normalna prędkość)
                         )
                     }
+                    vibrate(context, durationMs = 180)
                     onClick()
                 }
             )
