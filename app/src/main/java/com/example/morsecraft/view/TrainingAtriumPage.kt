@@ -34,7 +34,7 @@ fun TrainingAtriumPage(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             BackButton {
-                navController.navigate(routes.mainmenupage)
+                navController.popBackStack()
             }
         }
         Column(
@@ -42,7 +42,7 @@ fun TrainingAtriumPage(navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            MainTitle("TRAINING \nMODE")
+            MainTitle("TRAINING MODE")
             Spacer(Modifier.height(25.dp))
             SubMainTitle("Practise your Morse skills!")
             Spacer(Modifier.height(30.dp))
@@ -50,7 +50,14 @@ fun TrainingAtriumPage(navController: NavController) {
                 onClick = {
                     navController.navigate(routes.trainingpage)
                 },
-                text = "Let's start!"
+                text = "Level 1: Let's start!"
+            )
+            Spacer(Modifier.height(30.dp))
+            NormalTouchButton(
+                onClick = {
+                    navController.navigate(routes.trainingwordspage)
+                },
+                text = "Level 2: Let's start!"
             )
         }
     }

@@ -7,7 +7,6 @@ class Randomizer:
     def rando_letter(self) -> str:
         return random.choice(self.letters)
 
-
 class MorseCoderL1(Randomizer):
     MORSE = {
         "A": "._", "B": "_...", "C": "_._.", "D": "_..", "E": ".",
@@ -34,14 +33,11 @@ class MorseCoderL1(Randomizer):
     def __str__(self):
         return str(self.coder_l1())
 
-
 def random_letter() -> str:
     return Randomizer().rando_letter()
 
-
 def check_l1(letter: str, answer: str) -> bool:
     return MorseCoderL1(letter, answer).coder_l1()
-
 
 def reveal_l1(letter: str) -> str:
     return MorseCoderL1.reveal(letter)

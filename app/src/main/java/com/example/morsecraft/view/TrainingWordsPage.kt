@@ -17,20 +17,21 @@ import com.example.morsecraft.utils.MorseDashButton
 import com.example.morsecraft.utils.MorseDotButton
 import com.example.morsecraft.utils.QuestionTable
 import com.example.morsecraft.utils.ResultBadge
+import com.example.morsecraft.utils.SpaceButton
 import com.example.morsecraft.utils.SubMainTitle
 
 
 
 @Composable
-fun TrainingPage(navController: NavController) {
+fun TrainingWordsPage(navController: NavController) {
     var morseText by remember {mutableStateOf("")}
-    var currentLetter by remember {mutableStateOf<String?>(null)}
+    var currentWord by remember {mutableStateOf<String?>(null)}
     var result by remember {mutableStateOf<CheckResult?>(null)}
 
-    val py = remember { Python.getInstance().getModule("model.morsecoder")}
+    val py = remember { Python.getInstance().getModule("model.morsecoder_words")}
 
     LaunchedEffect(Unit) {
-        currentLetter = py.callAttr("random_letter").toString()
+        currentWord = py.callAttr("random_word").toString()
     }
     Column(
         modifier = Modifier
@@ -58,7 +59,7 @@ fun TrainingPage(navController: NavController) {
                 modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.Center
             ) {
-                QuestionTable(currentLetter ?: "...")
+                QuestionTable(currentWord ?: "...")
                 ResultBadge(
                     result = result,
                     modifier = Modifier
@@ -71,7 +72,7 @@ fun TrainingPage(navController: NavController) {
                 contentAlignment = Alignment.Center
             ) {
                 NormalTouchButton(
-                    onClick = { morseText = py.callAttr("reveal_l1", currentLetter).toString() },
+                    onClick = { morseText = py.callAttr("reveal_l2", currentWord).toString() },
                     text = "I don't know!"
                 )
             }
@@ -88,14 +89,16 @@ fun TrainingPage(navController: NavController) {
                 Spacer(Modifier.width(10.dp))
                 MorseDashButton({ morseText += "_"})
             }
-            Spacer(Modifier.height(20.dp))
+            Spacer(Modifier.height(10.dp))
+            SpaceButton { morseText += " "  }
+            Spacer(Modifier.height(10.dp))
             Row{
-                CheckButton { val letter = currentLetter ?:return@CheckButton
-                    val ok = py.callAttr("check_l1", letter, morseText).toBoolean()
+                CheckButton { val letter = currentWord ?:return@CheckButton
+                    val ok = py.callAttr("check_l2", letter, morseText).toBoolean()
                     result = if (ok) CheckResult.OK else CheckResult.WRONG
                     morseText = ""
                     if (ok){
-                        currentLetter = py.callAttr("random_letter").toString()
+                        currentWord = py.callAttr("random_word").toString()
                         morseText = ""
                     }
                 }
@@ -114,3 +117,5 @@ fun TrainingPage(navController: NavController) {
 
     }
 }
+
+

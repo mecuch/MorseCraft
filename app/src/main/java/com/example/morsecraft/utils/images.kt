@@ -139,4 +139,13 @@ fun DashImage(){
     )
 }
 
+@Composable
+fun SpaceImage(){
+    Image(
+        painter = painterResource(id = R.drawable.space),
+        contentDescription = "just space",
+        modifier = Modifier
+            .size(90.dp)
+    )
+}
 

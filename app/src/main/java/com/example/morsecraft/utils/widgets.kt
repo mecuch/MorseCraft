@@ -39,6 +39,7 @@ import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.getValue
 
 val doto = FontFamily(
@@ -213,6 +214,38 @@ fun DeleteButton(
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun SpaceButton(
+    onClick: () -> Unit, )
+{
+    Surface(
+        modifier = Modifier
+            .combinedClickable(
+                onClick ={
+                    onClick()
+                }
+            )
+            .width(160.dp)
+            .height(64.dp)
+            .border(
+                color = Color(0xFF2FAC66),
+                shape = RoundedCornerShape(16.dp),
+                width = 2.dp,
+            ),
+        shadowElevation = 4.dp,
+        shape = RoundedCornerShape(10.dp)
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ){
+            SpaceImage()
+        }
+
+    }
+}
+
 @Composable
 fun ResultBadge(result: CheckResult?, modifier: Modifier = Modifier) {
     if (result == null) return
@@ -366,7 +399,7 @@ fun DecodeButton(
 fun MainTitle(value: String) {
     Text(
         text = value,
-        fontSize = 49.sp,
+        fontSize = 39.sp,
         fontFamily = doto,
         fontWeight = FontWeight.Bold,
         color = Color(0xFF2FAC66)

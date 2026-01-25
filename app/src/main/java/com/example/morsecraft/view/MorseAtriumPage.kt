@@ -55,7 +55,7 @@ fun MorseAtriumPage(navController: NavController) {
             Spacer(Modifier.height(30.dp))
             NormalTouchButton(
                 onClick = {
-                    navController.navigate(routes.morsepage)
+                    navController.navigate(routes.morsewordpage)
                 },
                 text = "MEDIUM - words"
             )

@@ -12,6 +12,7 @@ import com.example.morsecraft.utils.BackButton
 import com.example.morsecraft.utils.CheckButton
 import com.example.morsecraft.utils.DeleteButton
 import com.example.morsecraft.utils.MainTitle
+import com.example.morsecraft.utils.MediumTitle
 import com.example.morsecraft.utils.MorseDashButton
 import com.example.morsecraft.utils.MorseDotButton
 import com.example.morsecraft.utils.QuestionTable
@@ -43,7 +44,7 @@ fun MorsePage(navController: NavController) {
             verticalAlignment = Alignment.CenterVertically
         ){
             BackButton {
-                navController.navigate(routes.mainmenupage)
+                navController.popBackStack()
             }
         }
         Column(
@@ -51,7 +52,8 @@ fun MorsePage(navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            MainTitle("ENCODE \nGAME")
+            MainTitle("ENCODE GAME")
+            MediumTitle("Level 1 - Letters")
             Spacer(Modifier.height(25.dp))
             SubMainTitle("Translate into Morse Code:")
             Spacer(Modifier.height(20.dp))
