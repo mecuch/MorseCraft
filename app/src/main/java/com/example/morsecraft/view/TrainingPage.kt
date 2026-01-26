@@ -18,7 +18,7 @@ import com.example.morsecraft.utils.MorseDotButton
 import com.example.morsecraft.utils.QuestionTable
 import com.example.morsecraft.utils.ResultBadge
 import com.example.morsecraft.utils.SubMainTitle
-
+import com.example.morsecraft.view_model.CheckResult
 
 
 @Composable

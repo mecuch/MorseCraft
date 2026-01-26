@@ -19,7 +19,7 @@ import com.example.morsecraft.utils.QuestionTable
 import com.example.morsecraft.utils.ResultBadge
 import com.example.morsecraft.utils.SpaceButton
 import com.example.morsecraft.utils.SubMainTitle
-
+import com.example.morsecraft.view_model.CheckResult
 
 
 @Composable

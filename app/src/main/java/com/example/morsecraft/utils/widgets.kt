@@ -33,7 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.morsecraft.R
-import com.example.morsecraft.view.CheckResult
+import com.example.morsecraft.view_model.CheckResult
 import android.media.SoundPool
 import android.os.Build
 import android.os.VibrationEffect
@@ -451,6 +451,17 @@ fun MediumTitle(value: String) {
 }
 
 @Composable
+fun SmallTitle(value: String) {
+    Text(
+        text = value,
+        fontSize = 16.sp,
+        fontFamily = doto,
+        fontWeight = FontWeight.Bold,
+        color = Color.Black
+    )
+}
+
+@Composable
 fun NormalTouchTitle(value: String) {
     Text(
         text = value,
@@ -458,6 +469,17 @@ fun NormalTouchTitle(value: String) {
         fontFamily = doto,
         fontWeight = FontWeight.Bold,
         color = Color.White
+    )
+}
+
+@Composable
+fun SmallTouchTitle(value: String) {
+    Text(
+        text = value,
+        fontSize = 14.sp,
+        fontFamily = doto,
+        fontWeight = FontWeight.Bold,
+        color = Color(0xFF2FAC66)
     )
 }
 
@@ -534,7 +556,7 @@ fun BackButton(
 
 @Composable
 fun QuestionTable(
-    value: String
+    value: String,
 ){
     Box(
         modifier = Modifier
@@ -543,6 +565,22 @@ fun QuestionTable(
     )
     {
         BigTitle(value)
+    }
+}
+
+@Composable
+fun ClickableLetterTable(
+    value: String,
+    onClick: () -> Unit,
+){
+    Box(
+        modifier = Modifier
+            .border(width = 1.dp, color = Color(0xFF2FAC66))
+            .padding(8.dp)
+    )
+    {
+        BigTitle(value)
+
     }
 }
 
