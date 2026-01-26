@@ -35,9 +35,7 @@ import androidx.compose.ui.unit.sp
 import com.example.morsecraft.R
 import com.example.morsecraft.view_model.CheckResult
 import android.media.SoundPool
-import android.os.Build
 import android.os.VibrationEffect
-import android.os.Vibrator
 import android.os.VibratorManager
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.getValue
@@ -421,7 +419,7 @@ fun SubMainTitle(value: String) {
 fun BigTitle(value: String) {
     Text(
         text = value,
-        fontSize = 75.sp,
+        fontSize = 39.sp,
         fontFamily = doto,
         fontWeight = FontWeight.Bold,
         color = Color(0xFF2FAC66)
@@ -440,14 +438,16 @@ fun BigTitleBlack(value: String) {
 }
 
 @Composable
-fun MediumTitle(value: String) {
-    Text(
-        text = value,
-        fontSize = 26.sp,
-        fontFamily = doto,
-        fontWeight = FontWeight.Bold,
-        color = Color(0xFF2FAC66)
-    )
+fun MediumTitle(text: String?) {
+    if (text != null) {
+        Text(
+            text = text,
+            fontSize = 26.sp,
+            fontFamily = doto,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF2FAC66)
+        )
+    }
 }
 
 @Composable
@@ -568,6 +568,7 @@ fun QuestionTable(
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ClickableLetterTable(
     value: String,
@@ -575,6 +576,9 @@ fun ClickableLetterTable(
 ){
     Box(
         modifier = Modifier
+            .combinedClickable(
+                onClick = onClick
+            )
             .border(width = 1.dp, color = Color(0xFF2FAC66))
             .padding(8.dp)
     )

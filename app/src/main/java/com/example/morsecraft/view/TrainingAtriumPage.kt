@@ -44,6 +44,14 @@ fun TrainingAtriumPage(navController: NavController) {
         ) {
             MainTitle("TRAINING MODE")
             Spacer(Modifier.height(25.dp))
+            SubMainTitle("Learn Morse Code!")
+            NormalTouchButton(
+                onClick = {
+                    navController.navigate(routes.presenterpage)
+                },
+                text = "Morse Code Presenter"
+            )
+            Spacer(Modifier.height(25.dp))
             SubMainTitle("Practise your Morse skills!")
             Spacer(Modifier.height(30.dp))
             NormalTouchButton(

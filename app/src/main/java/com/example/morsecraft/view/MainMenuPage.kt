@@ -27,7 +27,7 @@ fun MainMenuPage(navController: NavController){
         verticalArrangement = Arrangement.Center
     ){
         MenuLogo()
-        MainTitle("v0.13")
+        MainTitle("v0.16")
         Spacer(Modifier.height(20.dp))
         MenuNormalTouchButton(
             onClick = {
@@ -40,7 +40,7 @@ fun MainMenuPage(navController: NavController){
             onClick = {
                 navController.navigate(routes.trainatriumpage)
             },
-            text = "Encode Training",
+            text = "Morse Practise",
             ID = R.drawable.training_menu)
         Spacer(Modifier.height(20.dp))
         MenuNormalTouchButton(

@@ -15,6 +15,7 @@ import com.example.morsecraft.view.DisclaimerPage
 import com.example.morsecraft.view.MainMenuPage
 import com.example.morsecraft.view.MorseAtriumPage
 import com.example.morsecraft.view.MorsePage
+import com.example.morsecraft.view.MorsePresenterPage
 import com.example.morsecraft.view.MorseWordsPage
 import com.example.morsecraft.view.TrainingAtriumPage
 import com.example.morsecraft.view.TrainingPage
@@ -41,6 +42,7 @@ class MainActivity : ComponentActivity() {
                 composable(routes.trainatriumpage) { TrainingAtriumPage(navController) }
                 composable(routes.trainingpage) { TrainingPage(navController) }
                 composable(routes.trainingwordspage) { TrainingWordsPage(navController) }
+                composable(routes.presenterpage) { MorsePresenterPage(navController) }
             }
         }
     }

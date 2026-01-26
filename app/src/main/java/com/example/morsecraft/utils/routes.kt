@@ -10,4 +10,5 @@ object routes {
     val trainatriumpage = "trainatrium_page"
     val trainingpage = "training_page"
     val trainingwordspage = "trainingwords_page"
+    val presenterpage = "presenter_page"
 }

@@ -22,6 +22,3 @@ class MorseLetterPresenter:
 
 def present(letter) -> MorseLetterPresenter:
     return MorseLetterPresenter(letter)
-
-test = present("O")
-print(test)
