@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.morsecraft.utils.BackButton
+import com.example.morsecraft.utils.BigTitleBlack
 import com.example.morsecraft.utils.MainTitle
 import com.example.morsecraft.utils.NormalTouchButton
 import com.example.morsecraft.utils.SubMainTitle
@@ -44,7 +45,7 @@ fun TrainingAtriumPage(navController: NavController) {
         ) {
             MainTitle("TRAINING MODE")
             Spacer(Modifier.height(25.dp))
-            SubMainTitle("Learn Morse Code!")
+            BigTitleBlack("Learn Morse Code!")
             NormalTouchButton(
                 onClick = {
                     navController.navigate(routes.presenterpage)
@@ -52,20 +53,27 @@ fun TrainingAtriumPage(navController: NavController) {
                 text = "Morse Code Presenter"
             )
             Spacer(Modifier.height(25.dp))
-            SubMainTitle("Practise your Morse skills!")
+            BigTitleBlack("Practise your Morse skills!")
             Spacer(Modifier.height(30.dp))
             NormalTouchButton(
                 onClick = {
                     navController.navigate(routes.trainingpage)
                 },
-                text = "Level 1: Let's start!"
+                text = "EASY: LETTERS - Let's start!"
             )
             Spacer(Modifier.height(30.dp))
             NormalTouchButton(
                 onClick = {
                     navController.navigate(routes.trainingwordspage)
                 },
-                text = "Level 2: Let's start!"
+                text = "MEDIUM: WORDS -  Let's start!"
+            )
+            Spacer(Modifier.height(30.dp))
+            NormalTouchButton(
+                onClick = {
+                    navController.navigate(routes.trainingwordspage)
+                },
+                text = "HARD: SENTENCES -  Let's start!"
             )
         }
     }

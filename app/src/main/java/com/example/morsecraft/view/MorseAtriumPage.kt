@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.morsecraft.utils.BackButton
+import com.example.morsecraft.utils.BigTitleBlack
 import com.example.morsecraft.utils.MainTitle
 import com.example.morsecraft.utils.NormalTouchButton
 import com.example.morsecraft.utils.SubMainTitle
@@ -44,7 +45,7 @@ fun MorseAtriumPage(navController: NavController) {
         ) {
             MainTitle("ENCODE \nGAME")
             Spacer(Modifier.height(25.dp))
-            SubMainTitle("Choose your level!")
+            BigTitleBlack("Choose your level!")
             Spacer(Modifier.height(30.dp))
             NormalTouchButton(
                 onClick = {
@@ -62,7 +63,7 @@ fun MorseAtriumPage(navController: NavController) {
             Spacer(Modifier.height(30.dp))
             NormalTouchButton(
                 onClick = {
-                    navController.navigate(routes.morsepage)
+                    navController.navigate(routes.morsesentencepage)
                 },
                 text = "HARD - sentences"
             )

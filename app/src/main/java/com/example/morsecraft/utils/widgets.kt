@@ -430,7 +430,7 @@ fun BigTitle(value: String) {
 fun BigTitleBlack(value: String) {
     Text(
         text = value,
-        fontSize = 200.sp,
+        fontSize = 20.sp,
         fontFamily = doto,
         fontWeight = FontWeight.Bold,
         color = Color(0xFF000000)
@@ -568,25 +568,6 @@ fun QuestionTable(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-fun ClickableLetterTable(
-    value: String,
-    onClick: () -> Unit,
-){
-    Box(
-        modifier = Modifier
-            .combinedClickable(
-                onClick = onClick
-            )
-            .border(width = 1.dp, color = Color(0xFF2FAC66))
-            .padding(8.dp)
-    )
-    {
-        BigTitle(value)
-
-    }
-}
 
 @Composable
 fun MessageTable(
