@@ -33,7 +33,7 @@ fun MorsePresenterPage(navController: NavController){
     }
     val py = remember { Python.getInstance().getModule("model.morsepresenter")}
     LaunchedEffect(Unit) {
-        currentLetter = "<Pick letter\nto reveal code>"
+        currentLetter = "<Pick letter\nto reveal codes>"
     }
 
 
