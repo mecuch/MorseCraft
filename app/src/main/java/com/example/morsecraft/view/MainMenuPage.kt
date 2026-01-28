@@ -27,7 +27,7 @@ fun MainMenuPage(navController: NavController){
         verticalArrangement = Arrangement.Center
     ){
         MenuLogo()
-        MainTitle("v0.19")
+        MainTitle("v0.2")
         Spacer(Modifier.height(20.dp))
         MenuNormalTouchButton(
             onClick = {

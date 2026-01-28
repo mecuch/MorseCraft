@@ -139,12 +139,14 @@ private suspend fun playMorseSequence(
     soundPool: SoundPool,
     dotSoundId: Int,
     dashSoundId: Int,
-    unitMs: Long = 120L,
+    unitMs: Long = 70L,
 ) {
     val dotDuration = unitMs
-    val dashDuration = unitMs * 3
+    val dashDuration = unitMs * 2
+    val letterGap = unitMs * 3
+    val sentenceGap = unitMs * 4
     val symbolGap = unitMs
-    val symbols = morse.filter { it == '.' || it == '_' || it == '-' }
+    val symbols = morse.filter { it == '.' || it == '_' || it == '-' || it == ' ' || it == '/' }
     symbols.forEachIndexed { index, symbol ->
         when (symbol) {
             '.' -> if (dotSoundId != 0) {
@@ -155,6 +157,15 @@ private suspend fun playMorseSequence(
                 soundPool.play(dashSoundId, 1.0f, 1.0f, 1, 0, 1.0f)
                 delay(dashDuration)
             }
+            ' ' -> if (dotSoundId != 0) {
+                soundPool.play(dotSoundId, 0.0f, 0.0f, 1, 0, 1.0f)
+                delay(letterGap)
+            }
+            '/' -> if (dotSoundId != 0) {
+                soundPool.play(dotSoundId, 0.0f, 0.0f, 1, 0, 1.0f)
+                delay(sentenceGap)
+            }
+
         }
         if (index < symbols.lastIndex) {
             delay(symbolGap)
